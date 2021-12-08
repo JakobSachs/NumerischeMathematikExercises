@@ -28,7 +28,7 @@ jobs:
 #      - name: Run notebooks
 #        run: "jupyter run ${GITHUB_WORKSPACE}/notebooks/*.ipynb"
       - name: Export notebooks
-        run: "jupyter nbconvert --to python ${GITHUB_WORKSPACE}/notebooks/*"
+        run: "jupyter nbconvert --to script ${GITHUB_WORKSPACE}/notebooks/*"
         
       - name: Copy scripts
         run: "mv  ${GITHUB_WORKSPACE}/notebooks/*.py  ${GITHUB_WORKSPACE}/pys/"
