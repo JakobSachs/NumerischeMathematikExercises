@@ -17,5 +17,8 @@ jobs:
         with:
           python-version: 3.9.7
       - name: Install required packages
-        run: "pip install numpy scipy matplotlib"
+        run: "pip install numpy scipy matplotlib jupyter"
+        
+      - name: Run notebooks
+        run: "jupyter run ${GITHUB_WORKSPACE}/notebooks/*.ipynb"
 
