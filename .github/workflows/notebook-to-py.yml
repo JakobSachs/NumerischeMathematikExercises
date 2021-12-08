@@ -20,7 +20,7 @@ jobs:
         run: "pip install numpy scipy matplotlib jupyter"
         
       - name: Clear old scripts
-        run: "rm ${GITHUB_WORKSPACE}/pys/*"
+        run: "rm -rf ${GITHUB_WORKSPACE}/pys/*"
 #      - name: Run notebooks
 #        run: "jupyter run ${GITHUB_WORKSPACE}/notebooks/*.ipynb"
       - name: Export notebooks
