@@ -38,5 +38,5 @@ jobs:
           git config --global user.name 'Bot'
           git config --global user.email ''
           git add -A
-          git commit -am "Automated script generated"
+          git diff-index --quiet HEAD || git commit -am "Automated script generated"
           git push
