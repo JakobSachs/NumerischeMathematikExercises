@@ -32,10 +32,10 @@ jobs:
       - name: Copy scripts
         run: "mv  ${GITHUB_WORKSPACE}/notebooks/*.py  ${GITHUB_WORKSPACE}/pys/"
     
-      - name: Push to repo
+      - name: Commit scripts
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+          git config --global user.name 'Bot'
+          git config --global user.email ''
           git add -A
-          git commit -m "Actions: generated scripts"
-          git push origin master
+          git commit -am "Automated script generated"
+          git push
