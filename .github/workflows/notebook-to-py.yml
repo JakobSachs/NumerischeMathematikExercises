@@ -30,7 +30,7 @@ jobs:
         run: "jupyter nbconvert --to python ${GITHUB_WORKSPACE}/notebooks/*"
         
       - name: Copy scripts
-        run: "cp  ${GITHUB_WORKSPACE}/notebooks/*.py  ${GITHUB_WORKSPACE}/pys/"
+        run: "mv  ${GITHUB_WORKSPACE}/notebooks/*.py  ${GITHUB_WORKSPACE}/pys/"
     
       - name: Push to repo
         run: |
