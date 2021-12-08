@@ -19,6 +19,12 @@ jobs:
       - name: Install required packages
         run: "pip install numpy scipy matplotlib jupyter"
         
-      - name: Run notebooks
-        run: "jupyter run ${GITHUB_WORKSPACE}/notebooks/*.ipynb"
-
+      - name: Clear old scripts
+        run: "rm ${GITHUB_WORKSPACE}/pys/*"
+#      - name: Run notebooks
+#        run: "jupyter run ${GITHUB_WORKSPACE}/notebooks/*.ipynb"
+      - name: Export notebooks
+        run: "jupyter nbconvert --to python ${GITHUB_WORKSPACE}/notebooks/*"
+        
+      - name: Copy scripts
+        run: "cp  ${GITHUB_WORKSPACE}/notebooks/*.py  ${GITHUB_WORKSPACE}/pys"
