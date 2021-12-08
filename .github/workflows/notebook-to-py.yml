@@ -20,7 +20,7 @@ jobs:
         run: "pip install numpy scipy matplotlib jupyter"
 
       - name: (create folder if not present)
-        run:  "mkdir -p {GITHUB_WORKSPACE}/pys"
+        run:  "mkdir -p ${GITHUB_WORKSPACE}/pys"
         
       - name: Clear old scripts
         run: "rm -rf ${GITHUB_WORKSPACE}/pys/*"
@@ -31,3 +31,11 @@ jobs:
         
       - name: Copy scripts
         run: "cp  ${GITHUB_WORKSPACE}/notebooks/*.py  ${GITHUB_WORKSPACE}/pys/"
+    
+      - name: Push to repo
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add -A
+          git commit -m "Actions: generated scripts"
+          git push origin master
