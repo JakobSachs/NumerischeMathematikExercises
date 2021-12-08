@@ -16,8 +16,9 @@ jobs:
         uses: actions/setup-python@v2.3.1
         with:
           python-version: 3.9.7
+          cache: 'pip'
       - name: Install required packages
-        run: "pip install numpy scipy matplotlib jupyter"
+        run: pip install -r requirements.txt
 
       - name: (create folder if not present)
         run:  "mkdir -p ${GITHUB_WORKSPACE}/pys"
