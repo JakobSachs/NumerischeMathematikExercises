@@ -18,6 +18,9 @@ jobs:
           python-version: 3.9.7
       - name: Install required packages
         run: "pip install numpy scipy matplotlib jupyter"
+
+      - name: (create folder if not present)
+        run:  "mkdir -p {GITHUB_WORKSPACE}/pys"
         
       - name: Clear old scripts
         run: "rm -rf ${GITHUB_WORKSPACE}/pys/*"
