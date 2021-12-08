@@ -1,5 +1,5 @@
 - Getestet in Python 3.9.7
 - benoetigte Pakte installieren ueber : `pip install numpy matplotlib scipy`
-- blatt6_NumerikNumerik.py regulaere Python Datei
-- blatt6_NumerikNumerik.ipynb Jupyter notebook , mit `pip install jupyter` 
+- blattX_NumerikNumerik.py regulaere Python Datei
+- blattX_NumerikNumerik.ipynb Jupyter notebook , mit `pip install jupyter` 
 und `jupyter-notebook blatt6_NumerikNumerik.ipynb` aufrufbar
