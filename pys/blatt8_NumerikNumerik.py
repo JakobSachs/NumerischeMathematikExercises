@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[180]:
+# In[ ]:
 
 
 #------------------------------------------------------------------------------#
@@ -17,7 +17,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy  as sp
+from scipy.linalg import lu,solve_triangular
 import time
 
 # Lade StyleSheet #
@@ -25,7 +25,7 @@ import time
 plt.style.use('fivethirtyeight')
 
 
-# In[181]:
+# In[ ]:
 
 
 # Vorbereitung
@@ -33,7 +33,7 @@ np.random.seed(2021)
 N = 500
 
 A = np.random.rand(N,N)
-(_,L,R) = sp.linalg.lu(A)
+(_,L,R) = lu(A)
 
 for i in range(N):
   L[i,i] = 1
@@ -42,7 +42,7 @@ y = np.ones(N)
 b = np.dot(L,y)
 
 
-# In[182]:
+# In[ ]:
 
 
 # Messung Gauss
@@ -60,7 +60,7 @@ print(f"\t\t{duration/N:.5} seconds per iteration")
 
 start = time.time_ns()
 for _ in range(N):
-  _ = sp.linalg.solve_triangular(L,b,lower=True)
+  _ = solve_triangular(L,b,lower=True)
 duration = time.time_ns() - start
 duration /= 1e9
 
@@ -68,7 +68,7 @@ print(f"Substitution:\t{duration:.5} seconds total")
 print(f"\t\t{duration/N:.5} seconds per iteration")
 
 
-# In[183]:
+# In[ ]:
 
 
 #------------------------------------------------------------------------------#
@@ -102,7 +102,7 @@ def rueckwaerts(R,b):
   return x
 
 
-# In[184]:
+# In[ ]:
 
 
 a = np.matrix('1 4 5; 1 6 11; 2 14 31')
@@ -110,7 +110,7 @@ l = np.matrix('1 0 0; 1 1 0 ; 2 3 1')
 r = np.matrix('1 4 5; 0 2 6 ; 0 0 3')
 
 
-# In[185]:
+# In[ ]:
 
 
 y = vorwaerts(l,np.array([17,31,82]))
